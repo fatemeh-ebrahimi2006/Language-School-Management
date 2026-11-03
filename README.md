@@ -55,9 +55,10 @@ Language-School-Management/
 ├── tools/
 │
 ├── test/
-│   ├── test_every_code.py
-│   └── test_controller.py
-│
+│   ├── __init__.py
+│   ├── test_controller.py
+│   ├── test_course_service.py
+│   └── test_every_code.py
 ├── main.py
 ├── requirements.txt
 ├── .gitignore

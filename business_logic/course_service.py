@@ -13,11 +13,11 @@ class CourseService :
        """یک دورهٔ معتبر را به فهرست دوره‌ها اضافه می‌کند."""
 
        if not isinstance(course,Course):
-           raise TypeError("Only Course objects can be added.")
+           raise TypeError("فقط اشیاء کلاس Course قابل اضافه شدن هستند.")
 
        for existing_course in self.courses:
            if existing_course.code == course.code :
-               raise ValueError("Course code already exists.")
+               raise ValueError("این کد دوره قبلاً ثبت شده است.")
 
        self.courses.append(course)
        return True
@@ -30,7 +30,7 @@ class CourseService :
         """دریافت دوره ها بر اساس زبان"""
 
         if not isinstance(language,str):
-            raise TypeError("Language must be string!!!")
+            raise TypeError("زبان باید متنی باشد")
 
         result = []
 
@@ -44,7 +44,7 @@ class CourseService :
         """دریافت دوره‌ها بر اساس سطح"""
 
         if not isinstance(level, str):
-            raise TypeError("Level must be a string.")
+            raise TypeError("سطح باید متنی باشد")
 
         result = []
 
@@ -58,7 +58,7 @@ class CourseService :
         """دریافت دوره‌ها بر اساس معلم"""
 
         if not isinstance(teacher, Teacher):
-            raise TypeError("Teacher must be a Teacher object.")
+            raise TypeError("معلم باید یک شیء از کلاس Teacher باشد.")
 
         result = []
 

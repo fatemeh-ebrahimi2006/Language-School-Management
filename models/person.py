@@ -129,7 +129,7 @@ class Person :
     def phone(self, new_phone):
 
         if not isinstance(new_phone, str):
-            raise TypeError("Phone must be a string.")
+            raise TypeError("شماره موبایل باید متن باشد")
 
         if (
                 len(new_phone) != 11
@@ -152,7 +152,7 @@ class Person :
     def __validate_national_id(national_id):
 
         if not isinstance(national_id, str):
-            raise TypeError("National ID must be a string.")
+            raise TypeError("کد ملی باید متن باشدgit diff --check")
 
         if (
                 len(national_id) != 10
