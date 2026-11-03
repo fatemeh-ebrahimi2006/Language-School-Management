@@ -1,4 +1,4 @@
-#اجرا کننده قوانین مربوط به مدیریت دوره‌ها
+# این فایل مسئول مدیریت دوره‌های آموزشی، افزودن دوره و جست‌وجوی آن‌ها است.
 
 from models.course import Course
 from models.teacher import Teacher

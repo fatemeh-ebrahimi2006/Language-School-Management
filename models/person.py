@@ -1,3 +1,5 @@
+# این فایل کلاس پایه Person را برای نگهداری و اعتبارسنجی اطلاعات مشترک افراد تعریف می‌کند.
+
 from persian_tools import national_id as national_id_tools
 from persian_tools import phone_number as phone_number_tools
 

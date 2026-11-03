@@ -1,3 +1,4 @@
+# این فایل کلاس Course را برای نگهداری اطلاعات دوره، معلم، سطح و شهریه تعریف می‌کند.
 
 from models.teacher import Teacher
 

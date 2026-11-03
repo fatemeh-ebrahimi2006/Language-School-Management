@@ -1,3 +1,4 @@
+# این فایل عملکرد AppController و ارتباط آن با بخش‌های مختلف برنامه را آزمایش می‌کند.
 
 from controller.app_controller import AppController
 

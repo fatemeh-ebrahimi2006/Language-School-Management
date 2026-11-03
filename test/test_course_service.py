@@ -1,3 +1,4 @@
+# این فایل عملکرد سرویس مدیریت دوره‌ها و متدهای افزودن و جست‌وجوی دوره را آزمایش می‌کند.
 
 from business_logic.course_service import CourseService
 from models.course import Course

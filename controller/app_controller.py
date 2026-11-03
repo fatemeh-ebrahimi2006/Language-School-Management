@@ -1,4 +1,4 @@
-#وظیفه Controller اینه که بین رابط گرافیکی، کلاس‌ها و پایگاه داده ارتباط برقرار کنه.
+# این فایل ارتباط بین رابط گرافیکی، کلاس‌های برنامه، سرویس مدیریت دوره‌ها و پایگاه داده را برقرار می‌کند.
 
 from persian_tools import national_id
 from models.teacher import Teacher

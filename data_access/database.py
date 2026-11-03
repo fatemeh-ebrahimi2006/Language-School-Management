@@ -1,14 +1,13 @@
+# این فایل مسئول ایجاد پایگاه داده، ذخیره اطلاعات ثبت‌نام و دریافت سوابق است.
 
 import sqlite3
 import os
-
 
 # مسیر فایل پایگاه داده
 DATABASE_NAME = os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
     "language_school.db"
 )
-
 
 # ساخت جدول ثبت نام
 def create_table():

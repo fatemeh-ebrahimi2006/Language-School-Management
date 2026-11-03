@@ -1,3 +1,4 @@
+# این فایل نقطه شروع برنامه است و اجرای کنترلر و رابط گرافیکی آموزشگاه را بر عهده دارد.
 
 from controller.app_controller import AppController
 from view.main_window import MainWindow
