@@ -86,8 +86,9 @@ class AppController:
     def register_student(self, name, family, phone, national_id, course):
         """ثبت‌نام دانش‌آموز در یک دوره"""
 
+        # بررسی معتبر بودن دوره انتخاب‌شده
         if not isinstance(course, Course):
-            raise TypeError("Invalid course.")
+            raise TypeError("دوره انتخاب‌ شده معتبر نیست.")
 
         student = Student(
             name,
