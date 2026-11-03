@@ -1,92 +1,127 @@
+
 from models.person import Person
 
 
 class Student(Person):
-    """اطلاعات زبان اموز اموزشگاه"""
-    def __init__(self,name,family,phone,national_id,languages,language_levels):
-        super().__init__(name,family,phone,national_id)
+    """اطلاعات زبان‌آموز آموزشگاه"""
 
+    def __init__(self, name, family, phone, national_id, languages, language_levels):
+
+        # دریافت اطلاعات اولیه از کلاس پدر
+        super().__init__(name, family, phone, national_id)
+
+        # تنظیم زبان‌ها و سطح‌های آموزشی
         self.languages = languages
         self.language_levels = language_levels
 
+        # بررسی تطابق تعداد زبان‌ها و سطح‌های آن‌ها
         if len(self.languages) != len(self.language_levels):
-            raise ValueError("Each language must have one level.")
+            raise ValueError("هر زبان باید یک سطح داشته باشد.")
 
-    #_________________language___________________
+    # -------------------- languages --------------------
 
     @property
     def languages(self):
+        """دریافت زبان‌های دانش‌آموز"""
         return self.__languages
 
     @languages.setter
     def languages(self, new_languages):
 
-        if not isinstance(new_languages,list):
-            raise TypeError("languages must be a list!!!")
+        # بررسی فهرست بودن زبان‌های انتخاب‌شده
+        if not isinstance(new_languages, list):
+            raise TypeError("زبان‌ها باید به‌صورت فهرست باشند.")
 
-        if not new_languages :
-            raise ValueError("At least one language must be selected.")
-        #شرط زیر برای تکراری انتخاب نکردن زبان
+        # جلوگیری از خالی بودن فهرست زبان‌ها
+        if not new_languages:
+            raise ValueError("حداقل یک زبان باید انتخاب شود.")
+
+        # جلوگیری از انتخاب زبان تکراری
         if len(new_languages) != len(set(new_languages)):
-            raise ValueError("Duplicate languages are not allowed.")
+            raise ValueError("انتخاب زبان تکراری مجاز نیست.")
 
+        # زبان‌های مجاز آموزشگاه
         allowed_languages = ["English", "Turkish", "Spanish"]
 
+        # بررسی معتبر بودن هر زبان
         for language in new_languages:
+
+            # بررسی متنی بودن نام زبان
             if not isinstance(language, str):
-                raise TypeError("Language must be a string.")
+                raise TypeError("نام زبان باید متنی باشد.")
 
+            # بررسی ارائه شدن زبان در آموزشگاه
             if language not in allowed_languages:
-                raise ValueError("This language is not available.")
+                raise ValueError("این زبان در آموزشگاه ارائه نمی‌شود.")
 
+        # ذخیره زبان‌های معتبر
         self.__languages = new_languages
 
-    #_________________language levels___________________
+    # -------------------- language levels --------------------
 
     @property
     def language_levels(self):
+        """دریافت سطح‌های آموزشی دانش‌آموز"""
         return self.__language_levels
 
     @language_levels.setter
     def language_levels(self, new_levels):
-        if not isinstance(new_levels,list):
-            raise TypeError("language levels must be a list!!!")
 
-        if not new_levels :
-            raise ValueError("At least one language level must be selected.")
+        # بررسی فهرست بودن سطح‌های آموزشی
+        if not isinstance(new_levels, list):
+            raise TypeError("سطح‌های زبان باید به‌صورت فهرست باشند.")
 
+        # جلوگیری از خالی بودن فهرست سطح‌ها
+        if not new_levels:
+            raise ValueError("حداقل یک سطح زبان باید انتخاب شود.")
+
+        # فهرست نگهداری سطح‌های معتبر
         clean_levels = []
 
+        # بررسی تک‌تک سطح‌های آموزشی
         for level in new_levels:
-            if not isinstance(level,str):
-                raise TypeError("Language level must be a string.")
 
+            # بررسی متنی بودن سطح
+            if not isinstance(level, str):
+                raise TypeError("سطح زبان باید متنی باشد.")
+
+            # حذف فاصله‌های اضافی و یکسان‌سازی حروف
             level = level.strip().lower()
 
+            # سطح‌های مجاز آموزشگاه
             if level not in ["beginner", "intermediate", "advanced"]:
-                raise ValueError("This language level is not available!!!")
+                raise ValueError("این سطح آموزشی در دسترس نیست.")
 
+            # ذخیره سطح با حرف اول بزرگ
             clean_levels.append(level.capitalize())
 
+        # ذخیره فهرست سطح‌های معتبر
         self.__language_levels = clean_levels
 
-    #______________________language count_______________________
+    # -------------------- language count --------------------
 
     @property
     def language_count(self):
+        """تعداد زبان‌های دانش‌آموز"""
         return len(self.languages)
 
-    #_______________________introduce____________________________
+    # -------------------- introduce --------------------
 
     def introduce(self):
-        super().introduce()
-        print(f"Languages: {self.languages}")
-        print(f"Language count: {self.language_count}")
-        print(f"Language levels: {self.language_levels}")
 
-    #______________repr_______________________
+        # نمایش اطلاعات پایه از طریق کلاس پدر
+        super().introduce()
+
+        # نمایش زبان‌ها و سطح‌های آموزشی
+        print(f"زبان‌ها: {self.languages}")
+        print(f"تعداد زبان‌ها: {self.language_count}")
+        print(f"سطح‌های زبان: {self.language_levels}")
+
+    # -------------------- repr --------------------
 
     def __repr__(self):
+
+        # نمایش اطلاعات دانش‌آموز به شکل قابل شناسایی
         return (
             f"Student(name={self.name!r}, "
             f"family={self.family!r}, "
